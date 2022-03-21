@@ -12,14 +12,6 @@
           <% } %>  
             <div class="card-body">
                 <h5 class="card-title text-capitalize"><%= user.fullName %></h5>
-                <h6 class="card-subtitle text-muted">                
-                  <% if (campgrounds.length === 1) { %>
-                    <%= campgrounds.length %> Campground
-                  <% } else { %>
-                    <%= campgrounds.length %> Campgrounds
-                  <% } %> 
-                  <div><%= reviews.length %> Reviews</div>
-                </h6> 
             </div>        
         </div>
         <div class="d-block d-sm-none d-none d-sm-block d-md-none mx-auto">
@@ -86,49 +78,6 @@
               <% } %>             
           </ul>
         </div>
-      </div>
-      <div class="col-12 col-md-6 col-lg-9">
-        <div class="container text-center"><h1>Campgrounds</h1></div>             
-        <div class="row">          
-          <% campgrounds.forEach(function(campground) { %>
-            <div class="col-12 col-lg-6">
-              <div class="card shadow-sm mt-3">
-                <a href="/campgrounds/<%= campground._id %>"><img id="campgroundCard" class="card-img-top" src="<%= campground.image %>"></a> 
-                <div class="card-body">
-                  <h5 class="card-title">
-                    <a href="/campgrounds/<%= campground._id %>" class="text-capitalize"><%= campground.name %></a>
-                    <% if (campground.price > 100) { %>
-                      <small class="float-right text-muted">$$$</small>
-                    <% } else if (campgrounds.price > 50) { %>
-                      <small class="float-right text-muted">$$</small>
-                    <% } else { %>
-                      <small class="float-right text-muted">$</small>
-                    <% } %>
-                                      
-                  </h5>              
-                  <h6 class="card-subtitle">
-                    <% if(!campground.comments.length) { %>
-                      <span class="text-muted">No Reviews</span>
-                    <% } else { %>
-                      <% var stars = ['<i class="far fa-star text-danger"></i>', '<i class="far fa-star text-danger"></i>', '<i class="far fa-star text-danger"></i>', '<i class="far fa-star text-danger"></i>', '<i class="far fa-star text-danger"></i>'] %>
-                      <% for(var i = 0; i < Math.round(campground.rateAvg); i++) { %>
-                          <% stars[i] = '<i class="fas fa-star text-danger"></i>' %>
-                      <% } %> 
-                      <% for(var i = 0; i < stars.length; i++) { %>
-                        <%- stars[i] %>
-                      <% } %>
-                      <% if (campground.comments.length === 1) { %>
-                        <span class="text-muted"><%= campground.comments.length %> Review</span> 
-                      <% } else { %>
-                        <span class="text-muted"><%= campground.comments.length %> Reviews</span> 
-                      <% } %>                
-                    <% } %>   
-                  </h6> 
-                </div>
-              </div>
-            </div>
-          <% }) %>
-        </div>        
       </div>
     </div>
   </div>

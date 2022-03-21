@@ -30,7 +30,7 @@ var upload = multer({
 
 var cloudinary = require("cloudinary");
 cloudinary.config({
-  cloud_name: "dmrien29n",
+  cloud_name: "TaylorDixon",
   api_key: process.env.API_KEY,
   api_secret: process.env.API_SECRET
 });
